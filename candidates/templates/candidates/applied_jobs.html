@@ -1,0 +1,62 @@
+{% extends "candidates/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<div>
+  <h3 class="text-center" style="font-size: 30px;"><b>APPLIED JOBS</b></h3>
+  <hr my-2 />
+  <div class="row">
+    {% for job, status in zipped %}
+    <div class="col-md-6">
+      <div class="card card-signin my-2">
+        <span class="ml-3 mt-3">
+          <a href="{% url 'job-detail' job.job.slug %}"
+          ><h4 class="text-dark">
+            <b>{{job.job.title}}</b>
+          </h4></a>
+          <p style="font-size: 20px;margin: 0px;"> {{job.internship}}</p>
+          <p style="font-size: 17px">
+            {{job.job.company}}<br /><i class="bi bi-geo-alt-fill" style="padding-right: 5px;"></i>{{job.job.location}}
+          </p>
+          <p style="font-size: 15px">
+            {{job.job.description|truncatewords:30}} -
+            <a href="{% url 'job-detail' job.job.slug %}">Read More</a>
+          </p>
+        </span>
+        <div class="card-footer">
+          {% if status == 0 %}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-primary text-uppercase ml-2">In Process</b></span
+          >
+          {% elif status == 1%}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-primary text-uppercase ml-2">First Round in Process</b></span
+          >
+          {% elif status == 2%}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-primary text-uppercase ml-2">Second Round in Process</b></span
+          >
+          {% elif status == 3%}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-primary text-uppercase ml-2">Third Round in Process</b></span
+          >
+          {% elif status == 4%}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-success text-uppercase ml-2">Selected</b></span
+          >
+          {% elif status == 5%}
+          <span style="font-size: 16px"
+            >Application Status:
+            <b class="text-danger text-uppercase ml-2">Rejected</b></span
+          >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

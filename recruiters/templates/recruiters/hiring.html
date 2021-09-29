@@ -1,0 +1,29 @@
+{%extends "recruiters/layout.html"%} {% load static %} {% block content %}
+<br /><br />
+<div style="background-color: white">
+  <div class="row">
+    <div class="col-md-6">
+      <div style="background: transparent !important" class="jumbotron">
+        <h1 class="display-4 text-center">
+          Hire the next best candidate here!
+        </h1>
+        <p class="lead text-center">
+          Hiring can be a tedious task. Let us make it easy for you!
+        </p>
+        <p class="lead text-center"></p>
+        <a href="{% url 'add-job' %}" style="text-decoration: none;"><div class="box">Hire Now!</div></a>
+          
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img
+        class="img-fluid"
+        src="../../static/management/images/4565.jpg"
+        alt="Hiring Image 2"
+      />
+    </div>
+  </div>
+  
+ {% endblock content %}
+</div>

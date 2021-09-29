@@ -1,0 +1,92 @@
+{% extends "candidates/layout.html" %} {% load static %} {% load crispy_forms_tags %}
+{% block content %} <br /><br />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3 class="text-center"><b>PROFILE DATA</b></h3>
+          <br />
+          <form class="form-signin">
+            <div class="form-group">
+              <p>Name: {{ profile.full_name }}</p>
+              <p>Email: {{ u.email }}</p>
+              <p>Country: {{ profile.country.name }}</p>
+              <p>Location: {{ profile.location }}</p>
+              <p>Institute: {{ profile.institute }}</p>
+              <p>Graduation Year: {{ profile.grad_year }}</p>
+              <p>Looking For Internship: {{ profile.looking_for }}</p>
+              {% if profile.resume %}
+              <p>
+                Resume:
+                <a href="{{ profile.resume.url }}" download="{{ profile.resume.url }}">Click to View/Download</a>
+              </p>
+              {% else %}
+              <p>Resume: Not Provided</p>
+              {% endif %} {% if request.user == u %}
+              <hr class="my-4" />
+              <a href="{% url 'edit-profile' %}" class="btn btn-warning btn-block">
+                 Edit Profile
+               </a><br />
+              {% endif %}
+            </div>
+          </form>
+          <h3 class="text-center">Skills ({{ skills.count }})</h3>
+          <br />
+          {% if request.user != u %}
+          <ol>
+            {% for skill in skills %}
+            <li>{{skill.skill}}</li>
+            {% endfor %}
+          </ol>
+          {% else %}
+          <form class="form-signin" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+              <br />
+              {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+              <button
+                class="ninja-button-add-skill"
+                type="submit"
+              >
+                Add Skill</button
+              ><br />
+            </div>
+          </form>
+          <br />
+          {% if skills %}
+          <form
+            class="form-signin"
+            action="{% url 'skill-delete' %}"
+            method="POST"
+          >
+            {% csrf_token %} {% for skill in skills %}
+            <div>
+              <input
+                class="mr-2"
+                type="checkbox"
+                value="{{ skill.id }}"
+                name="choices"
+              />{{ skill.skill }}
+            </div>
+            {% endfor %}
+            <br />
+            <div class="form-group">
+              <button
+                class="ninja-button-delete-skill"
+                type="submit"
+                name="delete"
+              >
+                Delete Selected Skills</button
+              ><br />
+            </div>
+          </form>
+          {% endif %} {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
