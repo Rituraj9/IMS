@@ -153,7 +153,7 @@ def recruiter_login(request):
 def pagelogout(request):
     logout(request)
 
-    return redirect('http://127.0.0.1:8000/')       
+    return redirect('')       
 
 def success(request):
     return render(request , 'management/success.html')
