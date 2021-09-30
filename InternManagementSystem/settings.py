@@ -113,13 +113,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 STATIC_URL = '/static/'
 MEDIA_URL = "/resumes/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resumes')
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -132,5 +133,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'riiir9346@gmail.com'
 EMAIL_HOST_PASSWORD = 'Xyzrr@2021'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
