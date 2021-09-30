@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'd9bm=ankh66ye=f65y7g0#nzz*v)jyh5hg-*p$8@#t==niwle('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['internmanagementsystem.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -129,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'resumes')
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
