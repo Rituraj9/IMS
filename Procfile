@@ -1,1 +1,1 @@
-web:gunicorn InternManagementSystem.wsgi
+web:gunicorn InternManagementSystem.wsgi --log-file -
