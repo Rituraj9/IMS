@@ -164,6 +164,7 @@ def success(request):
     return render(request , 'management/success.html')
 
 def token_send(request):
+    print("Welsome")
     return render(request , 'management/token_send.html')
 
 def verify(request , auth_token):
