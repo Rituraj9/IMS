@@ -153,7 +153,7 @@ def recruiter_login(request):
 def pagelogout(request):
     logout(request)
 
-    return redirect('')       
+    return redirect('/')       
 
 def success(request):
     return render(request , 'management/success.html')
