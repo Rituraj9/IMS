@@ -30,7 +30,7 @@ urlpatterns = [
     path('recruiter/recruiter_login/', include('management.urls')),
     path('candidate/', include('candidates.urls')),
     path('hiring/', include('recruiters.urls')),
-    path(r'^download/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+   # path(r'^download/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
    
 ]
 
