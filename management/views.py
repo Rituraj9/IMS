@@ -77,7 +77,7 @@ def candidate_register(request):
             raw_password = form.cleaned_data.get('password1')
             email = form.cleaned_data.get('email')
 
-            print(email)
+            
 
             #if User.objects.filter(username = username).first():
             #    messages.success(request, 'Username is taken.')
@@ -89,6 +89,7 @@ def candidate_register(request):
             auth_token = str(uuid.uuid4())
             profile_obj = Candidate.objects.create(user = user , auth_token = auth_token)
             profile_obj.save()
+            print(email)
             send_mail_after_registration(email , auth_token)
             return redirect('token_send')
 
