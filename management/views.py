@@ -28,7 +28,6 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 # Create your views here.
 
-# Qwerty100@   password 4ni18is005 ka
 def send_mail_after_registration(email , token):
     print(email,token)
     subject = 'Your accounts need to be verified'
