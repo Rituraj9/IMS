@@ -16,6 +16,3 @@ urlpatterns = [
     path('job/<slug>/remove/', views.remove_job, name='remove-job'),
    
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
