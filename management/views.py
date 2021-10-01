@@ -29,14 +29,14 @@ from django.core.mail import EmailMessage
 # Create your views here.
 
 def send_mail_after_registration(email , token):
-    print(email,token)
+    #print(email,token)
     subject = 'Your accounts need to be verified'
     message = f'Hi paste the link to verify your account https://internmanagementsystem.herokuapp.com/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
-    print(subject, message , email_from)
+    #print(subject, message , email_from)
     recipient_list = [email,]
-    print(recipient_list)
-    send_mail(subject, message , email_from ,recipient_list )
+    #print(recipient_list)
+    send_mail( subject, message , email_from ,recipient_list )
 
 def  home(request):
     return render(request,'management/home.html')
@@ -91,9 +91,9 @@ def candidate_register(request):
             auth_token = str(uuid.uuid4())
             profile_obj = Candidate.objects.create(user = user , auth_token = auth_token)
             profile_obj.save()
-            print(email)
+            #print(email)
             send_mail_after_registration(email , auth_token)
-            print("hi")
+            #print("hi")
             return redirect('token_send')
 
             #user = authenticate(username=username, password=raw_password)
@@ -163,7 +163,7 @@ def success(request):
     return render(request , 'management/success.html')
 
 def token_send(request):
-    print("Welsome")
+    #print("Welsome")
     return render(request , 'management/token_send.html')
 
 def verify(request , auth_token):
