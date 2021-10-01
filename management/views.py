@@ -30,6 +30,7 @@ from django.core.mail import EmailMessage
 
 # Qwerty100@   password 4ni18is005 ka
 def send_mail_after_registration(email , token):
+    print(email,token)
     subject = 'Your accounts need to be verified'
     message = f'Hi paste the link to verify your account https://internmanagementsystem.herokuapp.com/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
