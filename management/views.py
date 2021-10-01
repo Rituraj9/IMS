@@ -153,7 +153,7 @@ def recruiter_login(request):
 def pagelogout(request):
     logout(request)
 
-    return redirect('/')       
+    return redirect('https://internmanagementsystem.herokuapp.com/')       
 
 def success(request):
     return render(request , 'management/success.html')
