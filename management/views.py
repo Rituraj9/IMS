@@ -94,8 +94,9 @@ def candidate_register(request):
             #print(email)
             send_mail_after_registration(email , auth_token)
             #print("hi")
-            return redirect('token_send')
-
+            #return redirect('token_send')
+            return redirect('candidate_login')
+        
             #user = authenticate(username=username, password=raw_password)
             #ogin(request, user)
             #return redirect('http://127.0.0.1:8000/candidate/candidate_login/')
