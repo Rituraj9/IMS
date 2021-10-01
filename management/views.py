@@ -92,7 +92,7 @@ def candidate_register(request):
             profile_obj = Candidate.objects.create(user = user , auth_token = auth_token)
             profile_obj.save()
             #print(email)
-            send_mail_after_registration(email , auth_token)
+            #send_mail_after_registration(email , auth_token)
             #print("hi")
             #return redirect('token_send')
             return redirect('candidate_login')
