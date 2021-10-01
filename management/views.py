@@ -35,7 +35,8 @@ def send_mail_after_registration(email , token):
     message = f'Hi paste the link to verify your account https://internmanagementsystem.herokuapp.com/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
-    send_mail(subject, message , email_from ,recipient_list )
+    print(subject, message , email_from ,recipient_list)
+    send_mail(subject, message , email_from ,recipient_list)
 
 def  home(request):
     return render(request,'management/home.html')
