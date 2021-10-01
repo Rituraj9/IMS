@@ -18,7 +18,7 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=200, null=True, blank=True)
     country = CountryField(null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
-    resume = models.FileField(upload_to='resumes/', null=True, blank=True)
+    resume = models.URLField(null=True, blank=True)
     institute = models.TextField(null=True)
     grad_year = models.IntegerField(blank=True)
     looking_for = models.CharField(
