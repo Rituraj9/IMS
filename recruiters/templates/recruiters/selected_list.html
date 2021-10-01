@@ -26,7 +26,7 @@
             {{profile.user.email}}<br />{{profile.country.name}}
           </p>
           {% if profile.resume %}
-          <a href="{{profile.resume.url}}" download ="{{profile.resume.url}}">Click here to view the resume</a>
+          <a href="{{profile.resume}}">Click here to view the resume</a>
           {% else %}
           <p>No Resume Provided!</p>
           {% endif %}
